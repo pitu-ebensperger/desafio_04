@@ -1,1 +1,3 @@
-# desafio_04-1
+# Desafío 6 - Pizzería Mamma Mía
+ 
+React (G90) - 1 Introducción a React
