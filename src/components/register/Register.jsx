@@ -5,6 +5,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordAgain, setPasswordAgain] = useState("");
+  const [missingFields, setMissingFields] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPasswordRequirements, setPasswordRequirements] = useState(false);
   const [errorPasswordMatch, setPasswordMatch] = useState(false);
@@ -18,36 +19,28 @@ const Register = () => {
   const validateRegister = (e) => {
     e.preventDefault();
 
+    setMissingFields(false);
     setErrorEmail(false);
     setPasswordRequirements(false);
     setPasswordMatch(false);
     setSuccessMessage(false);
 
     if (!email || !password || !passwordAgain) {
+        setMissingFields(true);
+        if (!email || !validateEmailFormat(email)) setErrorEmail(true);
+        if (!password || password.length < 6) setPasswordRequirements(true);
+        if (password !== passwordAgain) setPasswordMatch(true);
+        return;
+      }
+     
+    if (!email || !validateEmailFormat(email) || password !== passwordAgain || password.length < 6){
       if (!email || !validateEmailFormat(email)) setErrorEmail(true);
       if (!password || password.length < 6) setPasswordRequirements(true);
       if (password !== passwordAgain) setPasswordMatch(true);
       return;
     }
 
-    if (!email) {
-      setErrorEmail("Debes ingresar tu email");
-      return;
-    }
-    if (!validateEmailFormat(email)) {
-      setErrorEmail("El formato del email no es válido");
-      return;
-    }
-
-    if (password.length < 6) {
-      setPasswordRequirements(true);
-      return;
-    }
-
-    if (password !== passwordAgain) {
-      setPasswordMatch(true);
-      return;
-    }
+  
 
     setSuccessMessage(true);
     setEmail('');
@@ -97,7 +90,8 @@ const Register = () => {
           </button>
 
           <div className="message">
-            {errorEmail ? <p className="error">Debes ingresar tu email</p> : null}
+          {missingFields ? <p className="error">Todos los campos son obligatorios</p> : null} 
+            {errorEmail ? <p className="error">El email ingresado no es válido</p> : null}
             {errorPasswordRequirements ? <p className="error">La contraseña debe tener al menos 6 caracteres</p> : null}
             {errorPasswordMatch ? <p className="error">Las contraseñas no son iguales</p> : null}
             {successMessage ? <p className="success">Registro exitoso</p> : null}

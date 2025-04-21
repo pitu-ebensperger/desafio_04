@@ -65,9 +65,7 @@
     border-radius: 5px;
 }
 
-input:-internal-autofill-selected {
-    background-color: light-dark(rgb(254, 244, 232), rgba(70, 90, 126, 0.4)) !important;
-}
+
 
 @media only screen and (max-width: 450px) {
     .form-section{
