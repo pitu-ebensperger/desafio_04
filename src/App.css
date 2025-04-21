@@ -61,3 +61,27 @@ body{
   
 }
 
+.btn-primary{
+  display: flex;
+  font-size: 1em;
+  border-radius: 50px;
+  background-color: #d1ab83;
+
+  color: #f4ece4;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  transition: background-color 0.5s;
+  transition: border-color 0.25s;
+  transition: filter 0.5s;
+  border-color: #d1ab83;
+  text-align: center;
+  justify-content: center;
+}
+
+.btn-primary:hover{
+  background-color: #191919;
+  border-color: #191919;
+  opacity: 0.9;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 3px;
+}
