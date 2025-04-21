@@ -1,7 +1,7 @@
-import './CardPizza.css'
 import React from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import './CardPizza.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
@@ -23,8 +23,8 @@ const CardPizza = ({name, price, ingredients, img}) => {
           </div>
         <div className='price'>Precio: ${price}</div>
         <div className='card-bottom'>
-          <Button variant="secondary" className='card-btn'>Ver más&nbsp;<FontAwesomeIcon icon={faPlus} size='xs'/> </Button>
-          <Button variant="primary" className='card-btn'>Añadir&nbsp;<FontAwesomeIcon icon={faCartPlus} size='xs'/></Button>
+          <div className='card-btn'>Ver más&nbsp;<FontAwesomeIcon icon={faPlus} size='xs'/> </div>
+          <div className='card-btn'>Añadir&nbsp;<FontAwesomeIcon icon={faCartPlus} size='xs'/></div>
        </div>
       </Card.Body>
      

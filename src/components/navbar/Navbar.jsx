@@ -29,19 +29,19 @@ const Navbar =() => {
       <div className="navbar-container">
     <div className="navbar">
         <div className='navbar-menu'>
-            <a href='#' className="brand">
+            <a href='../../../index.html' className="brand">
              <span><span className='brand-icon'><FontAwesomeIcon icon={faPizzaSlice} size='xs'/></span><strong>&nbsp;Pizzería</strong></span>
              <span>Mamma Mía</span></a>
-             <button className='nav-btn btn-home'><a href='#'><FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;Home</a></button>
+             <button className='nav-btn btn-home'><a href='../../../index.html'><FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;Home</a></button>
             {token ? 
              <span className='navbar-menu'>
-                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faUser} size='xs'/><span className="Register">&nbsp;Profile</span></a><span class="tooltiptext">Profil</span></button>
-                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faRightFromBracket} size='xs'/><span className="Register">&nbsp;Logout</span></a><span class="tooltiptext">Profil</span></button>
+                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faUser} size='xs'/><span className="Register">&nbsp;Profile</span></a><span className="tooltiptext">Profil</span></button>
+                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faRightFromBracket} size='xs'/><span className="Register">&nbsp;Logout</span></a><span className="tooltiptext">Profil</span></button>
              </span>
              :
              <span className='navbar-menu'>
-                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faRightToBracket} size='xs'/><span className="btntitle">&nbsp;Login</span></a><span class="tooltiptext">Login</span></button>
-                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faUserPlus} size='xs'/><span className="btntitle">&nbsp;Register</span></a><span class="tooltiptext">Register</span></button>
+                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faRightToBracket} size='xs'/><span className="btntitle">&nbsp;Login</span></a><span className="tooltiptext">Login</span></button>
+                <button className='nav-btn tooltip'><a href='#'><FontAwesomeIcon icon={faUserPlus} size='xs'/><span className="btntitle">&nbsp;Register</span></a><span className="tooltiptext">Register</span></button>
              </span>
 
             }
