@@ -1,10 +1,11 @@
-.card{
+.custom-card{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     gap: 1em;
-    width: 27%;
+    width: 280px;
+
     padding: 0;
     background-color: #f4ece4;
     color: #d1ab83;
@@ -12,24 +13,25 @@
     box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 5px;
     transition: box-shadow 0.5s;
     border: 0px solid transparent;
+    
   }
   
-  .card:hover{
+  .custom-card:hover{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
   }
-  .card-body{
+  .custom-card .card-body{
     width: 90%;
     padding: 0;
   }
   
-  .card-img-top{
+  .custom-card .card-img-top{
     max-width: 100%;
     border-radius: 8px 8px 0 0;
     object-fit: cover;
     border: 0px solid transparent;
   }
   
-  .card-title{
+  .custom-card .card-title{
     font-family: var(--font-family-serif);
     font-size: 1.5em;
     font-weight: 500;
@@ -38,6 +40,7 @@
     color:#d1ab83;
     margin-bottom: 15px;
     transition: color 0.5s;
+    text-transform: capitalize;
   }
   
   .ingredients{
@@ -52,19 +55,33 @@
     line-height: 1.1;
     border-top: 0.5px solid #d1ab83;
     border-bottom: 0.5px solid #d1ab83;
-    height: 80px;
+    height: 120px;
     transition: color 0.5s;
   }
   
           .ingredients .ingredients-title{
             font-weight: 600;
-            padding-bottom: 2px;
+            padding-bottom: 5px;
             margin: 0;
           }
   
-          .ingredients .ingredients-list{
-            font-weight: 400;
+          .ingredients ul{
             margin: 0;
+            padding: 0;
+            width: 100%;
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            column-gap: 2em;
+            row-gap: 0.2em;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+          }
+
+          .ingredients li{
+            font-weight: 400;
+            text-transform: capitalize;
           }
   
   .price{
@@ -78,11 +95,11 @@
     align-items: center;
     transition: color 0.5s;
   }
-  .card:hover .price, .card:hover .ingredients, .card:hover .card-title{
+  .custom-card .card:hover .price, .custom-card .card:hover .ingredients, .custom-card .card:hover .card-title{
     color: #2E2D2E;
     opacity: 1;
   }
-  .card-bottom {
+  .custom-card .card-bottom {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -90,7 +107,7 @@
     align-items: center;
     padding: 0.5em 0 2em 0;
   }
-      .card-bottom .card-btn{
+  .custom-card .card-bottom .card-btn{
               display: flex;
               font-size: 1em;
               border-radius: 50px;
@@ -109,19 +126,27 @@
               padding: 2px 20px;
             }
   
-            .card-bottom .card-btn:hover{
+            .custom-card .card-bottom .card-btn:hover{
               background-color: #2e2d2d;
               border-color: #2e2d2d;
               opacity: 0.9;
               box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 3px;
+              cursor: pointer;
             }
 
 @media (max-width: 991px) {
-  .card-bottom{
+
+
+  .custom-card{
+    width: 100%;
+    max-width: 360px;
+    transition: transform 0.3s ease-in-out;
+}
+.custom-card.card-bottom{
     flex-direction: column;
     row-gap: 10px;
     }
-    .card-bottom .card-btn{
+    .custom-card .card-bottom .card-btn{
     min-width: 50%;
   }
 }
@@ -129,20 +154,18 @@
 @media only screen and (max-width: 767px) {
 
   
-  .card{
+  .custom-card .card{
       width: 100%;
       max-width: 400px;
-      height: 100%;
       transition: transform 0.3s ease-in-out;
   }
   
-  .card:hover{
+  .custom-card .card:hover{
       transform: scale(1.05);
   }
 
-  .card-img-top{
+  .custom-card .card-img-top{
     width: 100%;
-
     border-radius: 8px 8px 0 0;
     object-fit: cover;
   }

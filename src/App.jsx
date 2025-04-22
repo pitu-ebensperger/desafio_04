@@ -1,17 +1,20 @@
 import './App.css'
 import Navbar from './components/navbar/Navbar'
-import Home from './components/home/Home'
+import Home from './components/home/home'
 import Footer from './components/footer/Footer'
-import RegisterPage from './pages/RegisterPage/RegisterPage'
-import LoginPage from './pages/LoginPage/LoginPage'
+import RegisterPage from './pages/Register/RegisterPage'
+import LoginPage from './pages/Login/LoginPage'
+import Cart from './pages/Cart/CartPage'
 
 const App = () => {
   return (
   <div className="main-container">
   <Navbar />
+  
   {/*  <Home />  */}
-<RegisterPage />  
+  {/*  <RegisterPage />  */}
   {/*  <LoginPage />  */}
+  <Cart />
   <Footer />
   </div>
   );
