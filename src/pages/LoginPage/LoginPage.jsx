@@ -4,7 +4,7 @@ import './LoginPage.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-function RegisterPage() {
+function LoginPage() {
   return (
     <div className="login-page">
       <a href='#' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></a>
@@ -16,4 +16,4 @@ function RegisterPage() {
   )
 }
 
-export default RegisterPage;
+export default LoginPage;
