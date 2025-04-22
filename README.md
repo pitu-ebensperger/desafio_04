@@ -1,4 +1,5 @@
-# React (G90) | Hito 3 - Pizzería Mamma Mía
+### Desafío Latam | Desarrollo Fullstack JavaScript (G90)
+# React: Hito 3 - Pizzería Mamma Mía
 El objetivo de este hito es implementar la renderización dinámica de componentes en la
 aplicación web.
 
@@ -16,11 +17,11 @@ aplicación web.
 
 ###  Objetivos
 
-- <Home />: Se recorre el array de pizzas y renderiza un componente <CardPizza />.
-- <CardPizza/>:Muestra la información de cada pizza utilizando props.
-- <CardPizza/>: Itera por la lista de ingredientes de cada pizza y renderiza un <li> por cada ingrediente
-- <Cart />: Recorre el array de pizzaCart y muestra la información de cada pizza en el carrito.
-- <Cart />: Agrega botones para aumentar y disminuir la cantidad de pizzas en el carrito.
-- <Cart />: Calcula el total de la compra y muéstralo en el carrito
+- '<Home />': Se recorre el array de pizzas y renderiza un componente <CardPizza />.
+- '<CardPizza/>':Muestra la información de cada pizza utilizando props.
+- '<CardPizza/>': Itera por la lista de ingredientes de cada pizza y renderiza un <li> por cada ingrediente
+- '<Cart />': Recorre el array de pizzaCart y muestra la información de cada pizza en el carrito.
+- '<Cart />': Agrega botones para aumentar y disminuir la cantidad de pizzas en el carrito.
+- '<Cart />': Calcula el total de la compra y muéstralo en el carrito
 
 
