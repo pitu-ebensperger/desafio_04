@@ -1,13 +1,4 @@
-.login-page{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding-top: 70px;
-    min-height: 82vh;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-  }
+
   
 .login-title{
     font-family: var(--font-family-serif);
