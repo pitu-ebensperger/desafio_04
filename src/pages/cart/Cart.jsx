@@ -13,7 +13,7 @@ const Cart = () => {
       setCartItems(newCartItems);
     }
   };
-
+  
   const decrementCount = (id) => {
     const newCartItems = [...cartItems];
     const pizzaIndex = newCartItems.findIndex((pizza) => pizza.id === id);

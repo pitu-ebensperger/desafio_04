@@ -17,7 +17,6 @@ import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Navbar.css'
 
-import Cart from '../cart/Cart'
 
 const NavbarMenu =() => {
     const total = 25000;

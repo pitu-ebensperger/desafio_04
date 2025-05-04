@@ -1,7 +1,7 @@
 
 import React from 'react'
-import Header from '../header/Header'
-import CardPizza from '../cardpizza/CardPizza'
+import Header from '../../components/header/Header'
+import CardPizza from '../../components/cardpizza/CardPizza'
 
 function Home() {
   return (
