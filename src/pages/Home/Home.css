@@ -1,0 +1,40 @@
+.home-page{
+    background-color: #f4ece4;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding-top: 70px;
+    min-height: 87.7vh;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+  }
+  
+  
+  .card-container{
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    gap: 2em;
+    padding: 2em 0;
+    margin: 0 100px;
+    max-height: 100%;
+    min-height: 50vh;
+    width: 100%;
+
+  }
+
+  @media (max-width: 991px) {
+    .card-container{
+      grid-template-columns: repeat(2, auto);    
+    }
+  }
+  @media only screen and (max-width: 767px) {
+  
+    .card-container{
+      grid-template-columns: repeat(1, auto);
+    }
+}
