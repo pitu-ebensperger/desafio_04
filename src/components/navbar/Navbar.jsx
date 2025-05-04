@@ -87,34 +87,34 @@ const NavbarMenu =() => {
 
       <div className="menuMobile" style={{ display: isMenuOpen ? 'flex' : 'none' }}>
         <Link to='/home' className='nav-btn btn-home'>
-            <FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;Home
+            <FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;&nbsp;Home
         </Link>
         {token ? 
           <span className='menu'>
             <Link to='/profile' className='nav-btn'>
                 <FontAwesomeIcon icon={faUser} size='xs'/>
-                <span className="btntitle">&nbsp;Profile</span>
+                <span className="btntitle">&nbsp;&nbsp;Profile</span>
             </Link>
             <Link to='/logout' className='nav-btn'>
                 <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
-                <span className="btntitle">&nbsp;Logout</span>
+                <span className="btntitle">&nbsp;&nbsp;Logout</span>
             </Link>
           </span>
           :
           <span className='menu'>
             <Link to='/login' className='nav-btn'>
             <FontAwesomeIcon icon={faRightToBracket} size='xs'/>
-            <span className="btntitle">&nbsp;Login</span>
+            <span className="btntitle">&nbsp;&nbsp;Login</span>
             </Link>
             <Link to='/register' className='nav-btn'>
               <FontAwesomeIcon icon={faUserPlus} size='xs'/>
-              <span className="btntitle">&nbsp;Register</span>
+              <span className="btntitle">&nbsp;&nbsp;Register</span>
             </Link>
           </span>
         }
         <Link to='/cart' className='total'>
             <FontAwesomeIcon icon={faCartShopping} size='xs'/>&nbsp;
-            <span className="totaltitle">Total&nbsp;</span>${total.toLocaleString()}
+            <span className="totaltitle">Total&nbsp;&nbsp;</span>${total.toLocaleString()}
         </Link>
       </div>
     </div>
