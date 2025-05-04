@@ -115,12 +115,13 @@ body{
   display: flex;
   position: fixed;
   font-size: 1.8em;
-  top: 150px;
-  left: 50px;
+  top: 100px;
+  left: 30px;
   color: #d1ab83;
   background-color: transparent;
   text-align: left;
   transition: color 0.5s;
+  z-index: 100;
 }
   
 .page .btn-back:hover{
@@ -155,7 +156,7 @@ form{
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 70px;
+    padding-top: 60px;
     min-height: 93vh;
     justify-content: center;
     align-items: center;

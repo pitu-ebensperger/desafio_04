@@ -30,7 +30,7 @@ const Cart = () => {
     }, 0);
 
   return (
-    <div className="cart page">
+    <div className="cart">
       <div className="cart-container">
         <h1 className="cart-title">Detalles del Pedido</h1>
         <ul>

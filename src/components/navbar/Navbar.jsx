@@ -33,12 +33,14 @@ const NavbarMenu =() => {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const closeMenu = () => setMenuOpen(false);
+
   return (
     <div>
       <div className="navbar-container">
     <div className="navbar">
         <div className='navbar-menu'>
-            <Link to='home' className="brand">
+            <Link to='/home' className="brand">
                 <span><span className='brand-icon'><FontAwesomeIcon icon={faPizzaSlice} size='xs'/></span><strong>&nbsp;Pizzería</strong></span>
                 <span>Mamma Mía</span>
             </Link>
@@ -85,33 +87,33 @@ const NavbarMenu =() => {
       </div>
 
       <div className="menuMobile" style={{ display: isMenuOpen ? 'flex' : 'none' }}>
-        <Link to='/home' className='nav-btn btn-home'>
+        <Link to='/home' className='nav-btn btn-home' onClick={closeMenu}>
             <FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;&nbsp;Home
         </Link>
         {token ? 
           <span className='menu'>
-            <Link to='/profile' className='nav-btn'>
+            <Link to='/profile' className='nav-btn' onClick={closeMenu}>
                 <FontAwesomeIcon icon={faUser} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Profile</span>
             </Link>
-            <Link to='/logout' className='nav-btn'>
+            <Link to='/logout' className='nav-btn' onClick={closeMenu}>
                 <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Logout</span>
             </Link>
           </span>
           :
           <span className='menu'>
-            <Link to='/login' className='nav-btn'>
+            <Link to='/login' className='nav-btn' onClick={closeMenu}>
             <FontAwesomeIcon icon={faRightToBracket} size='xs'/>
             <span className="btntitle">&nbsp;&nbsp;Login</span>
             </Link>
-            <Link to='/register' className='nav-btn'>
+            <Link to='/register' className='nav-btn' onClick={closeMenu}>
               <FontAwesomeIcon icon={faUserPlus} size='xs'/>
               <span className="btntitle">&nbsp;&nbsp;Register</span>
             </Link>
           </span>
         }
-        <Link to='/cart' className='total'>
+        <Link to='/cart' className='total' onClick={closeMenu}>
             <FontAwesomeIcon icon={faCartShopping} size='xs'/>&nbsp;
             <span className="totaltitle">Total&nbsp;&nbsp;</span>${total.toLocaleString()}
         </Link>

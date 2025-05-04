@@ -1,0 +1,124 @@
+.pizza-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4ece4;
+    width: 100%;
+}
+
+.pizza-page .btn-back{
+    color: #f4ece4;
+}
+
+.pizza{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 85vh;
+}
+
+  .pizza-title{
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+    padding: 0 2.1em;
+    align-items: center;
+    font-family: var(--font-family-serif);
+    font-size: 1.8em;
+    color: #f4ece4;
+    margin-bottom: 0.5em;
+    transition: color 0.5s;
+    text-transform: capitalize;
+    font-weight: 600;
+    position: absolute;
+    top: 395px;
+    z-index: 2;
+  }
+
+  .pizza-page .pizza-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    padding: 0 1em;
+    margin-top: 20px;
+    font-size: 1.1em;
+    line-height: 1.1;
+    transition: color 0.5s;  
+    margin-bottom: 50px;  
+  }
+  .pizza .img-container{
+    width: 100vw;
+    height: 400px;
+    top: 70px;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .pizza img{
+    width: 100%;
+  }
+
+  .pizza-page .pizza-info .title{
+    font-family: var(--font-family-serif);
+    font-weight: 600;
+    font-size: 1.05em;
+  }
+
+  .pizza-page .ingredients, .pizza-page .description, .pizza-page .price{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 1em 0;
+    color:#2E2D2E;
+    font-family: var(--font-family-sans);
+    font-size: 0.95em;
+    line-height: 1.2;
+    transition: color 0.5s;
+    width: 100%;
+    text-align: left;
+  }
+
+  .pizza-page .ingredients{
+    text-transform: capitalize;
+  }
+
+  .pizza-page .price{
+    font-family: var(--font-family-serif);
+  }
+
+
+.pizza-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.pizza-page .btn-primary{
+    width: 150px;
+    font-weight: 500;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+  
+    .pizza-page .img-container{
+        max-height: 40%;
+    }
+    .pizza-page .pizza-title{
+        top: 37%;
+        bottom: 100%;;
+        padding: 0 8%;
+    }
+  }

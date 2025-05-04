@@ -50,7 +50,7 @@ const Login = () => {
   
     return (
       <>
-      <div className="login-page page">
+      <div className="login-page">
             <a href='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></a>
             <h1 className="page-title">Login</h1>
             <div className="page-form">

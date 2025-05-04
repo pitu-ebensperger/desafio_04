@@ -43,7 +43,7 @@
     text-transform: capitalize;
   }
   
-  .ingredients{
+  .card-pizza .ingredients{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,13 +59,13 @@
     transition: color 0.5s;
   }
   
-          .ingredients .ingredients-title{
+           .card-pizza .ingredients .ingredients-title{
             font-weight: 600;
             padding-bottom: 5px;
             margin: 0;
           }
   
-          .ingredients ul{
+          .card-pizza .ingredients ul{
             margin: 0;
             padding: 0;
             width: 100%;
@@ -79,12 +79,12 @@
             justify-items: center;
           }
 
-          .ingredients li{
+          .card-pizza .ingredients li{
             font-weight: 400;
             text-transform: capitalize;
           }
   
-  .price{
+    .card-pizza .price{
     font-family: var(--font-family-serif);
     font-size: 1.4em;
     font-weight: 500;

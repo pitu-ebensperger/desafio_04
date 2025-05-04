@@ -4,7 +4,7 @@ El objetivo de este hito es implementar el consumo de una API externa en la apli
 ###  Instrucciones
 
 1. Levantar el backend **http://localhost:5001/**
-        (a)
-2. 
+2. Usar hook useEffect además de fetch para hacer la petición a la API de pizzas.
+3. Pizza.jsx
 
 

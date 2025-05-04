@@ -55,7 +55,7 @@ const Register = () => {
 
   return (
     <>
-    <div className="register-page page">
+    <div className="register-page">
           <Link to='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></Link>
           <h1 className="page-title">Registro</h1>
           <div className="page-form">
