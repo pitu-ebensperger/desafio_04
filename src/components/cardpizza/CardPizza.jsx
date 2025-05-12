@@ -17,10 +17,11 @@ const CardPizza = () => {
 
   useEffect(() => {
     const fetchPizzas = async () => {
+      
       try {
-        const res = await fetch("http://localhost:5001/api/pizzas");
-        if (!res.ok) throw new Error("Failed to fetch pizzas");
-        const data = await res.json();
+        const response = await fetch("http://localhost:5001/api/pizzas");
+        if (!response.ok) throw new Error("No se pudo obtener información de las pizzas");
+        const data = await response.json();
         setPizzas(data);
       } catch (err) {
         setError(err.message);
