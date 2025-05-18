@@ -6,10 +6,12 @@ import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Pizza from "./components/pizza/Pizza";
 
-import Cart from "./pages/cart/Cart";
-import Home from "./pages/home/home";
-import Login from "./pages/Login/login";
-import Register from "./pages/Register/register";
+import Cart from "./views/cart/CartPage";
+import Home from "./views/home/HomePage";
+import Login from "./views/login/LoginPage";
+import Register from "./views/register/RegisterPage";
+import Profile from "./views/profile/ProfilePage";
+import NotFound from "./components/notfound/NotFound";
 
 
 const App = () => {
@@ -24,6 +26,8 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/pizza/:id" element={<Pizza />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/404" element={<NotFound />} />
     </Routes>
     </div>
     <Footer />
