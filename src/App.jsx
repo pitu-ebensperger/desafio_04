@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/pizza/:id" element={<Pizza />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/404" element={<NotFound />} />
+          <Route path="/*" element={<NotFound />} />
     </Routes>
     </div>
     <Footer />
