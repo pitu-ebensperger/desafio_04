@@ -67,14 +67,18 @@ body{
   font-size: 1em;
   border-radius: 50px;
   background-color: #d1ab83;
-  color: #f4ece4;
+  border-color: #d1ab83;
+  color: white;
   justify-items: center;
   align-items: center;
   vertical-align: middle;
-  transition:  0.5s;
-  border-color: #d1ab83;
   text-align: center;
-  justify-content: center;
+  width: fit-content;
+  font-weight: 500;
+  margin-top: 0px;
+  transition:  all 0.5s;
+  border-style: none;
+  padding: 7px 20px;
 }
 
 .page .btn-primary:hover{
@@ -204,3 +208,154 @@ form{
     margin: 0 auto;
     width: 100%;
   }
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    width: 90%;
+    max-height: 90%;
+    height: 600px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+
+  .custom-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    width: 280px;
+
+    padding: 0;
+    background-color: #f4ece4;
+    color: #d1ab83;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 5px;
+    transition: box-shadow 0.5s;
+    border: 0px solid transparent;
+    
+  }
+  
+  .custom-card:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+  }
+  .custom-card .card-body{
+    width: 90%;
+    padding: 0;
+  }
+  
+  .custom-card .card-img-top{
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+    object-fit: cover;
+    border: 0px solid transparent;
+  }
+  
+  .custom-card .card-title{
+    font-family: var(--font-family-serif);
+    font-size: 1.5em;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0;
+    color:#d1ab83;
+    margin-bottom: 15px;
+    transition: color 0.5s;
+    text-transform: capitalize;
+  }
+  
+  .card-pizza .ingredients{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 0;
+    color: #d1ab83;
+    font-family: var(--font-family-sans);
+    font-size: 0.9em;
+    line-height: 1.1;
+    border-top: 0.5px solid #d1ab83;
+    border-bottom: 0.5px solid #d1ab83;
+    height: 120px;
+    transition: color 0.5s;
+  }
+  
+           .card-pizza .ingredients .ingredients-title{
+            font-weight: 600;
+            padding-bottom: 5px;
+            margin: 0;
+          }
+  
+          .card-pizza .ingredients ul{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(1, auto);
+            column-gap: 2em;
+            row-gap: 0.2em;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+          }
+
+          .card-pizza .ingredients li{
+            font-weight: 400;
+            text-transform: capitalize;
+          }
+  
+    .card-pizza .price{
+    font-family: var(--font-family-serif);
+    font-size: 1.4em;
+    font-weight: 500;
+    padding: 0.5em 0;
+    margin: 0;
+    color:#d1ab83;
+    text-align: center;
+    align-items: center;
+    transition: color 0.5s;
+  }
+  .custom-card .card:hover .price, .custom-card .card:hover .ingredients, .custom-card .card:hover .card-title{
+    color: #2E2D2E;
+    opacity: 1;
+  }
+  .custom-card .card-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5em 0 2em 0;
+  }
+  .custom-card .card-bottom .card-btn{
+              display: flex;
+              font-size: 1em;
+              border-radius: 50px;
+              background-color: #d1ab83;
+              color: #f4ece4;
+              font-weight: 500;
+              justify-items: center;
+              align-items: center;
+              vertical-align: middle;
+              transition: background-color 0.5s;
+              transition: border-color 0.25s;
+              transition: filter 0.5s;
+              border-color: #d1ab83;
+              text-align: center;
+              justify-content: center;
+              padding: 2px 20px;
+            }
+  
+            .custom-card .card-bottom .card-btn:hover{
+              background-color: #2e2d2d;
+              border-color: #2e2d2d;
+              opacity: 0.9;
+              box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 3px;
+              cursor: pointer;
+            }

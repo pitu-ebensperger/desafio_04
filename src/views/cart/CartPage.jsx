@@ -31,7 +31,7 @@ const Cart = () => {
 
   return (
     <div className="cart">
-      <div className="cart-container">
+      <div className="cart-container card">
         <h1 className="cart-title">Detalles del Pedido</h1>
         <ul>
           {cartItems

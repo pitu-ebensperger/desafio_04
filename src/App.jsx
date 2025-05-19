@@ -10,7 +10,7 @@ import Cart from "./views/cart/CartPage";
 import Home from "./views/home/HomePage";
 import Login from "./views/login/LoginPage";
 import Register from "./views/register/RegisterPage";
-import Profile from "./views/profile/ProfilePage";
+import Profile from "./components/profile/Profile";
 import NotFound from "./components/notfound/NotFound";
 
 

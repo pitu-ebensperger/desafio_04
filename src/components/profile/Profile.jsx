@@ -5,22 +5,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Profile = () => {
+  const email= "nombre@email.com";
   return (
-    <div className="profile-page">
+    <div className="profile-page page">
       <Link to='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></Link>
+      <div className="custom-card">
       <h1 className="page-title">Perfil</h1>
       <div className="profile-container">
         <div className="profile-info">
-          <h2>Información de la cuenta</h2>
-          <p>Nombre: Juan Pérez</p>
-          <p>Email: email</p>
+          <p>Email: {email}</p>
      </div>
-  
-        <div className="profile-actions">
-          <h2>Acciones</h2>
-          <button className="btn-edit">Editar perfil</button>
-          <button className="btn-logout">Cerrar sesión</button>
         </div>
+        <div className="profile-actions">
+          <button className="btn-primary">Cerrar sesión</button>
+        </div>
+
       </div>
     </div>
   );
