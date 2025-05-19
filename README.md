@@ -1,20 +1,13 @@
-# React (G90) | Hito 5 - Pizzería Mamma Mía
-En este hito se realizará la implementación del enrutamiento con lo aprendido hasta el momento en React Router. El sistema de enrutamiento responderá a una vista index, a los componentes register, login, cart, entre otros.
+# React (G90) | Hito 6 - Pizzería Mamma Mía
+El objetivo de este hito es implementar el manejo de estado global en la aplicación web utilizando Context API.
 
 
 (*) Backend en: **http://localhost:5001/**
 
 ###  Instrucciones
-1. Realizar las instalaciones necesarias para trabajar con React Router y su respectiva configuración en el proyecto.
-2. Trasladar los componentes Home, Register, Login, Cart y Pizza a la carpeta pages.
-3. Crear las rutas necesarias para los componentes:
-    - ruta "/"
-    - ruta "/register"
-    - ruta "/login"
-    - ruta "/cart"
-    - ruta "/pizza/p001"
-    - ruta "/profile"
-    - ruta "/404"
-4. Implementar un componente NotFound que se muestre cuando una ruta no exista.
-5. Implementar un componente Profile que muestre un email de un usuario y un botón para cerrar sesión.
-6. Crear un componente Navbar que contiene un menú de navegación con enlaces a las rutas anteriores  (utilizando Link). Además, el botón "🛒 Total: $xxx" redirige a la ruta “/cart”.
+1. Implementa un Context que te permita manejar el carrito de compras de la aplicación.
+2. En el Navbar consume el Cart Context para mostrar el precio total de los productos en el carrito. 
+3. Consume el Cart Context para que el usuario pueda agregar productos al carrito desde la página de Home (botón añadir de cada card). 
+4. En la página Cart muestra los productos que el usuario ha agregado al carrito (utilizando Cart Context), permite agregar y eliminar productos del carrito. 
+5. El total de la compra debe ser calculado y mostrado en la página Cart, además este tiene que ser el mismo que se muestra en el navbar. 
+6. Puedes llevar el consumo de las pizzas (fetch de Home y Pizza) a un Context. (opcional)
