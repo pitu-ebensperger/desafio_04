@@ -13,9 +13,14 @@ import Register from "./views/register/RegisterPage";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/notfound/NotFound";
 
+import CartProvider from "./context/CartContext";
+import PizzaProvider from "./context/PizzaContext";
+
 
 const App = () => {
   return (
+  <CartProvider>
+      <PizzaProvider>
     <div className="main-container">
     <Navbar />
     <div className="page">
@@ -31,8 +36,10 @@ const App = () => {
     </Routes>
     </div>
     <Footer />
-
   </div>
+  </PizzaProvider>
+ </CartProvider>
+
   );
   };
 

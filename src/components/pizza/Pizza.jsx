@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
 
 import './Pizza.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,32 +9,22 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import { CartContext } from '../../context/CartContext';
+import { PizzaContext } from '../../context/PizzaContext';
+
 
 const Pizza = () => {
+  const { addToCart } = useContext(CartContext);
+
   const { id } = useParams();
-  const [pizza, setPizza] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { pizzas, loading, error } = useContext(PizzaContext);
 
-  useEffect(() => {
-    const fetchPizza = async () => {
-      try {
-        const res = await fetch(`http://localhost:5001/api/pizzas/${id}`);
-        if (!res.ok) throw new Error("Pizza no encontrada");
-        const data = await res.json();
-        setPizza(data);
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPizza();
-  }, [id]);
+  const pizza = pizzas.find(p => p.id === id);
 
-  if (loading) return <p>Cargando pizza...</p>;
-  if (error) return <p className='error'>Error: {error}</p>;
-  if (!pizza) return <p className='error'>No hay data</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (error) return <p>Error: {error}</p>;
+  if (!pizza) return <p>Pizza no encontrada</p>;
+
 
   return (
     <div className="pizza-page">
@@ -47,7 +38,10 @@ const Pizza = () => {
       <div className='price'><span className='title'>Precio:</span> ${pizza.price.toLocaleString()}</div>
 
     <div className="pizza-btns">
-      <button className="btn btn-primary">Add to Cart</button>
+         <button className='btn btn-primary' onClick={() => addToCart(pizza)}>
+                         <FontAwesomeIcon icon={faCartPlus} size='xs' />&nbsp;&nbsp;Añadir
+                                       </button>
+
       </div>
       </div>
       </div>

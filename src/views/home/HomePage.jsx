@@ -1,9 +1,12 @@
 import './home.css'
-import React from 'react'
+import {useContext } from 'react';
 import Header from '../../components/header/Header'
 import CardPizza from '../../components/cardpizza/CardPizza'
 
+
+
 function Home() {
+
   return (
     <div className="home-page">
       <Header />

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
 import { faHouse } from '@fortawesome/free-solid-svg-icons'
@@ -17,9 +17,17 @@ import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Navbar.css'
 
+import { CartContext } from "../../context/CartContext";
 
 const NavbarMenu =() => {
-    const total = 25000;
+    const { cartItems } = useContext(CartContext);
+      
+    const cartTotal = cartItems
+      .filter((pizza) => pizza.quantity > 0) 
+      .reduce((total, pizza) => {
+        return total + pizza.price * pizza.quantity;
+      }, 0);
+
     const token = false;
     const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -78,7 +86,7 @@ const NavbarMenu =() => {
   
         <Link to='/cart' className='total'>
             <FontAwesomeIcon icon={faCartShopping} size='xs'/>&nbsp;
-            <span className="totaltitle">Total&nbsp;</span>${total.toLocaleString()}
+            <span className="totaltitle">Total&nbsp;</span>${cartTotal.toLocaleString()}
         </Link>
          <div className="menu-toggle" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faBars} size='xl' />
@@ -115,7 +123,7 @@ const NavbarMenu =() => {
         }
         <Link to='/cart' className='total' onClick={closeMenu}>
             <FontAwesomeIcon icon={faCartShopping} size='xs'/>&nbsp;
-            <span className="totaltitle">Total&nbsp;&nbsp;</span>${total.toLocaleString()}
+            <span className="totaltitle">Total&nbsp;&nbsp;</span>${cartTotal.toLocaleString()}
         </Link>
       </div>
     </div>
