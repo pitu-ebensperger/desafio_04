@@ -1,13 +1,14 @@
-# React (G90) | Hito 6 - Pizzería Mamma Mía
-El objetivo de este hito es implementar el manejo de estado global en la aplicación web utilizando Context API.
+# React (G90) | Hito 7 - Pizzería Mamma Mía
+Implementaremos rutas protegidas y vamos a utilizar el hook useParams para obtener el id de la pizza en la página de Pizza.jsx.
 
 
 (*) Backend en: **http://localhost:5001/**
 
 ###  Instrucciones
-1. Implementa un Context que te permita manejar el carrito de compras de la aplicación.
-2. En el Navbar consume el Cart Context para mostrar el precio total de los productos en el carrito. 
-3. Consume el Cart Context para que el usuario pueda agregar productos al carrito desde la página de Home (botón añadir de cada card). 
-4. En la página Cart muestra los productos que el usuario ha agregado al carrito (utilizando Cart Context), permite agregar y eliminar productos del carrito. 
-5. El total de la compra debe ser calculado y mostrado en la página Cart, además este tiene que ser el mismo que se muestra en el navbar. 
-6. Puedes llevar el consumo de las pizzas (fetch de Home y Pizza) a un Context. (opcional)
+1. Implementar rutas protegidas yvamos a utilizar el hook useParams para obtener el id de la pizza en la página de Pizza.jsx.
+2. Crear un UserContext para almacenar el token (simulado) que estamos utilizando en el Navbar.jsx, El context tiene que tener las siguientes características:
+   - Un estado que almacene el token, por defecto, estará en true.
+   - Un método logout que cambie el estado del token a false.
+4. Utilizar el UserContext en el Navbar.jsx, al hacer click en el botón de logout, se debe ejecutar el método logout.
+5. Utilizar el UserContext en la página de Cart.jsx, deshabilita el botón "pagar" en caso de que el token sea false.
+6. Implementa la ruta protegida para "/profile". Si el token es false, redirige a "/login". Además, si el token es true, los usuarios no deberían poder acceder a la página de login y register (los puedes redirigir al home).
