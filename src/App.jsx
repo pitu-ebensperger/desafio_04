@@ -18,6 +18,8 @@ import PizzaProvider from "./context/PizzaContext";
 
 
 const App = () => {
+  const { user } = useContext(UserContext);
+
   return (
   <CartProvider>
       <PizzaProvider>
@@ -27,6 +29,7 @@ const App = () => {
     <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
+          <Route path="/admin" element={user ? <Administracion /> : <Navigate to="/login" />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
