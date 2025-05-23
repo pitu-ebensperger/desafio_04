@@ -5,7 +5,7 @@ import pizzaCart from "./pizzaCart";
 
 import Decrement from "../../components/cartcounter/Decrement";
 import Increment from "../../components/cartcounter/Increment";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/cartContext";
 
 
 const Cart = () => {

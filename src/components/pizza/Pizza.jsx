@@ -9,8 +9,8 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-import { CartContext } from '../../context/CartContext';
-import { PizzaContext } from '../../context/PizzaContext';
+import { CartContext } from '../../context/cartContext';
+import { PizzaContext } from '../../context/pizzaContext';
 
 
 const Pizza = () => {

@@ -9,8 +9,8 @@ import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
-import { CartContext } from '../../context/CartContext';
-import { PizzaContext } from '../../context/PizzaContext';
+import { CartContext } from '../../context/cartContext.jsx';
+import { PizzaContext } from '../../context/pizzaContext.jsx';
 
 
 const CardPizza = () => {

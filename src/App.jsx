@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Pizza from "./components/pizza/Pizza";
@@ -12,9 +14,12 @@ import Login from "./views/login/LoginPage";
 import Register from "./views/register/RegisterPage";
 import Profile from "./components/profile/Profile";
 import NotFound from "./components/notfound/NotFound";
+import Administracion from "./views/Administracion";
 
-import CartProvider from "./context/CartContext";
-import PizzaProvider from "./context/PizzaContext";
+import CartProvider from "./context/cartContext";
+import PizzaProvider from "./context/pizzaContext";
+import { UserContext } from "./context/userContext";
+
 
 
 const App = () => {
