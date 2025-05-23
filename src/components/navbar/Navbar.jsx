@@ -17,10 +17,12 @@ import { Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './Navbar.css'
 
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/cartContext";
+import { UserContext } from "../../context/userContext";
 
 const NavbarMenu =() => {
     const { cartItems } = useContext(CartContext);
+    const { user } = useContext(UserContext);
       
     const cartTotal = cartItems
       .filter((pizza) => pizza.quantity > 0) 
@@ -28,7 +30,7 @@ const NavbarMenu =() => {
         return total + pizza.price * pizza.quantity;
       }, 0);
 
-    const token = false;
+    const token = true;
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -57,12 +59,12 @@ const NavbarMenu =() => {
             </Link>
             {token ? 
              <span className='navbar-menu'>
-                <Link to='/profile'className='nav-btn tooltip'>
+                <Link to='/profile'className='nav-btn'>
                     <FontAwesomeIcon icon={faUser} size='xs'/>
                     <span className="btntitle">&nbsp;Perfil</span>
                     <span className="tooltiptext">Perfil</span>
                 </Link>
-                <Link to='/logout' className='nav-btn tooltip'>
+                <Link to='/logout' className='nav-btn'>
                     <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
                     <span className="btntitle">&nbsp;Logout</span>
                     <span className="tooltiptext">Logout</span>
