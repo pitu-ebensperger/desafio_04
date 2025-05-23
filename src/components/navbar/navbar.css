@@ -72,6 +72,14 @@
   .navbar-container button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
   }
+  .navbar-container button{
+    color: #f4ece4;    
+    text-decoration: none;
+  }
+  .navbar-container button:hover{
+    color: #d1ab83;
+  }
+
   .navbar-container button a{
     color: #d1ab83;
     text-decoration: none;

@@ -64,11 +64,11 @@ const NavbarMenu =() => {
                     <span className="btntitle">&nbsp;Perfil</span>
                     <span className="tooltiptext">Perfil</span>
                 </Link>
-                <Link to='/logout' className='nav-btn'>
+                <button className='nav-btn'>
                     <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
                     <span className="btntitle">&nbsp;Logout</span>
                     <span className="tooltiptext">Logout</span>
-                </Link>
+                </button>
              </span>
              :
              <span className='navbar-menu'>
