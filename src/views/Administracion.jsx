@@ -1,4 +1,6 @@
 const Administracion = () => {
-    return <div>Administración</div>;
+    return <div className="page">
+        Administración
+    </div>;
     };
 export default Administracion;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import './NotFound.css'
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

@@ -3,6 +3,7 @@
     padding:20px 40px;
     min-height: 40vh;
     justify-content: space-evenly;
+    width: 560px;
 }
 
 .profile-page .page-title{
@@ -30,4 +31,18 @@
     margin: 0 auto;
     width: 100%;
     height: 100%;;
+}
+
+@media screen and (max-width: 991px) {
+    
+.profile-page .custom-card{
+    max-width: none;
+}
+}
+
+@media screen and (max-width: 701px) {
+    
+.profile-page .custom-card{
+    max-width: 90vw;
+}
 }

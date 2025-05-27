@@ -1,24 +1,31 @@
 import { useState, useContext } from "react";
+import { useNavigate, Link } from "react-router-dom";
+
 import "./Cart.css";
 import pizzaCart from "./pizzaCart";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import Decrement from "../../components/cartcounter/Decrement";
 import Increment from "../../components/cartcounter/Increment";
 import { CartContext } from "../../context/cartContext";
-
+import { UserContext } from "../../context/userContext";
 
 const Cart = () => {
+  const { token } = useContext(UserContext);
   const { cartItems } = useContext(CartContext);
   
-  const cartTotal = cartItems
-    .filter((pizza) => pizza.quantity > 0) 
+  const cartTotal = cartItems 
+    .filter((pizza) => pizza.quantity > 0) // Filtrar solo pizzas > 0 
     .reduce((total, pizza) => {
       return total + pizza.price * pizza.quantity;
     }, 0);
 
   return (
-    <div className="cart">
+    <div className="cart page">
+            <Link to='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></Link>
+      
       <div className="cart-container card">
         <h1 className="cart-title">Detalles del Pedido</h1>
         <ul>
@@ -49,14 +56,17 @@ const Cart = () => {
               </div>
             ))}
         </ul>
-        {cartItems.filter((pizza) => pizza.quantity > 0).length === 0 ? (
+        {cartItems.filter((pizza) => pizza.quantity > 0).length === 0 ? ( // Carro vacío
           <p className="empty-cart">El carro está vacío</p>
         ) : (
           <div className="cart-bottom">
           <span className="cart-total">
             Total <strong>${cartTotal.toLocaleString()}</strong>
           </span>
-          <button className="btn btn-primary">Pagar</button>
+          {token ? // Boton solo para visible para loggeados(token), sino link a login/registro
+              <button className="btn btn-primary">Pagar</button> :
+              <p className="alert-pay"> Haz<a href="/login"> &nbsp;Login&nbsp; </a> o <a href="/register"> &nbsp;Registrate&nbsp; </a>para pagar</p>
+          }
         </div>
         )}
       </div>

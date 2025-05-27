@@ -5,9 +5,10 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-  const [cartItems, setCartItems] = useState(pizzaCart);
+  const [cartItems, setCartItems] = useState(pizzaCart); // Estado inicial carro
 
-  const addToCart = (pizza) => {
+  // Función para agregar pizza al carro
+  const addToCart = (pizza) => { 
     setCartItems((prevCart) => {
       const exists = prevCart.find((item) => item.id === pizza.id);
       if (exists) {
@@ -20,6 +21,7 @@ const CartProvider = ({ children }) => {
     });
   };
   
+  // Funcion para aumentar cant pizzas
    const incrementCount = (id) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
@@ -28,6 +30,7 @@ const CartProvider = ({ children }) => {
     );
   };
 
+  // Funcion para disminuir cant pizzas
   const decrementCount = (id) => {
   setCartItems((prevItems) =>
     prevItems
@@ -36,7 +39,8 @@ const CartProvider = ({ children }) => {
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
-      .filter((item) => item.quantity > 0) 
+      // Eliminar item < 0
+      .filter((item) => item.quantity > 0)  
   );
 };
         return (

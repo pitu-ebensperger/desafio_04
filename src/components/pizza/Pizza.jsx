@@ -1,26 +1,28 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 
 import './Pizza.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faCartPlus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { CartContext } from '../../context/cartContext';
 import { PizzaContext } from '../../context/pizzaContext';
 
 
 const Pizza = () => {
-  const { addToCart } = useContext(CartContext);
+  // Tomar función para agregar al carro
+  const { addToCart } = useContext(CartContext); 
 
   const { id } = useParams();
-  const { pizzas, loading, error } = useContext(PizzaContext);
 
+  // Tomar pizzas, loading y error 
+  const { pizzas, loading, error } = useContext(PizzaContext); 
+
+   // Buscar pizza por id
   const pizza = pizzas.find(p => p.id === id);
-
+  
+  // Si no hay pizza:
   if (loading) return <p>Cargando...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!pizza) return <p>Pizza no encontrada</p>;
@@ -28,7 +30,7 @@ const Pizza = () => {
 
   return (
     <div className="pizza-page">
-    <a href='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></a>
+    <Link to='/home' className="btn-back"><FontAwesomeIcon icon={faArrowLeft} /></Link>
     <div className="pizza">
       <div className='img-container'><img src={pizza.img} alt={pizza.name} />      <div className='pizza-title'>{pizza.name}</div>
       </div>
@@ -40,7 +42,7 @@ const Pizza = () => {
     <div className="pizza-btns">
          <button className='btn btn-primary' onClick={() => addToCart(pizza)}>
                          <FontAwesomeIcon icon={faCartPlus} size='xs' />&nbsp;&nbsp;Añadir
-                                       </button>
+         </button>
 
       </div>
       </div>

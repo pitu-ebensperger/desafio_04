@@ -1,48 +1,39 @@
 
-import React, { useState, useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons'
-import { faHouse } from '@fortawesome/free-solid-svg-icons'
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import { faLock } from '@fortawesome/free-solid-svg-icons'
-import { faUnlock } from '@fortawesome/free-solid-svg-icons'
-import { faUserLock } from '@fortawesome/free-solid-svg-icons'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { useState, useContext } from 'react';
+import { useNavigate, Link } from "react-router-dom";
 
-import { Container, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPizzaSlice,faHouse,faCartShopping,faUser,faLock,faUnlock,faUserLock,faUserPlus,faRightFromBracket,faRightToBracket,faBars,} from '@fortawesome/free-solid-svg-icons';
+
 import './Navbar.css'
 
 import { CartContext } from "../../context/cartContext";
 import { UserContext } from "../../context/userContext";
 
 const NavbarMenu =() => {
-    const { cartItems } = useContext(CartContext);
-    const { user } = useContext(UserContext);
-      
+    const { cartItems = [] } = useContext(CartContext);
+    const { token, setToken } = useContext(UserContext); 
+
+    const logout = () => { // Función logout
+        setToken(null);
+    }
+    
     const cartTotal = cartItems
       .filter((pizza) => pizza.quantity > 0) 
       .reduce((total, pizza) => {
         return total + pizza.price * pizza.quantity;
       }, 0);
+  
+    // Verificar si hay token
+    const isLoggedIn = !!token; 
 
-    const token = true;
+
+    // Menú hamburguesa - Estado + Funciones toggle y close
     const [isMenuOpen, setMenuOpen] = useState(false);
-
     const toggleMenu = () => {
       setMenuOpen(!isMenuOpen);
     };
-
-
-    const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+    
     const closeMenu = () => setMenuOpen(false);
 
   return (
@@ -57,22 +48,21 @@ const NavbarMenu =() => {
             <Link to='/home'className='nav-btn btn-home'>
             <FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;Home
             </Link>
-            {token ? 
-             <span className='navbar-menu'>
-                <Link to='/profile'className='nav-btn'>
-                    <FontAwesomeIcon icon={faUser} size='xs'/>
-                    <span className="btntitle">&nbsp;Perfil</span>
-                    <span className="tooltiptext">Perfil</span>
+            
+            {isLoggedIn ? 
+              <>
+                <Link to='/profile' className='nav-btn' onClick={closeMenu}>
+                  <FontAwesomeIcon icon={faUser} size='xs' />
+                  <span className="btntitle">&nbsp;&nbsp;{token.displayName}</span>
                 </Link>
-                <button className='nav-btn'>
-                    <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
-                    <span className="btntitle">&nbsp;Logout</span>
-                    <span className="tooltiptext">Logout</span>
+                <button className='nav-btn' onClick={() => { logout(); closeMenu(); }}>
+                  <FontAwesomeIcon icon={faRightFromBracket} size='xs' />
+                  <span className="btntitle">&nbsp;&nbsp;Logout</span>
                 </button>
-             </span>
+              </>
              :
-             <span className='navbar-menu'>
-                <Link to='/login' className='nav-btn' onClick={handleShow}>
+             <div class="navbar-menu">
+                <Link to='/login' className='nav-btn' onClick={closeMenu}>
                     <FontAwesomeIcon icon={faRightToBracket} size='xs'/>
                     <span className="btntitle">&nbsp;Login</span>
                     <span className="tooltiptext">Login</span>
@@ -81,7 +71,7 @@ const NavbarMenu =() => {
                     <span className="btntitle">&nbsp;Registro</span>
                     <span className="tooltiptext">Registro</span>
                 </Link>
-             </span>
+             </div>
 
             }
             </div>
@@ -100,16 +90,16 @@ const NavbarMenu =() => {
         <Link to='/home' className='nav-btn btn-home' onClick={closeMenu}>
             <FontAwesomeIcon icon={faHouse} size='xs'/>&nbsp;&nbsp;Home
         </Link>
-        {token ? 
+        {isLoggedIn ? 
           <span className='menu'>
             <Link to='/profile' className='nav-btn' onClick={closeMenu}>
                 <FontAwesomeIcon icon={faUser} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Profile</span>
             </Link>
-            <Link to='/logout' className='nav-btn' onClick={closeMenu}>
+            <button className='nav-btn' onClick={() => { logout(); closeMenu(); }}>
                 <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Logout</span>
-            </Link>
+            </button>
           </span>
           :
           <span className='menu'>

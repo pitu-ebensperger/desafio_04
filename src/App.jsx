@@ -1,6 +1,4 @@
-import { useState, useContext } from "react";
-
-import './App.css';
+import { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
@@ -20,10 +18,11 @@ import CartProvider from "./context/cartContext";
 import PizzaProvider from "./context/pizzaContext";
 import { UserContext } from "./context/userContext";
 
-
+import './App.css';
 
 const App = () => {
-  const { user } = useContext(UserContext);
+  // Tomar token de userContext
+  const { token } = useContext(UserContext); 
 
   return (
   <CartProvider>
@@ -34,12 +33,12 @@ const App = () => {
     <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/" element={<Home />} />
-          <Route path="/admin" element={user ? <Administracion /> : <Navigate to="/login" />} />
+          <Route path="/admin" element={token ? <Administracion /> : <Navigate to="/login" />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={token ? <Navigate to="/home" /> : <Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/pizza/:id" element={<Pizza />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
           <Route path="/*" element={<NotFound />} />
     </Routes>
     </div>
