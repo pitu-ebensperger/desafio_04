@@ -1,14 +1,14 @@
-# React (G90) | Hito 7 - Pizzería Mamma Mía
-Implementaremos rutas protegidas y vamos a utilizar el hook useParams para obtener el id de la pizza en la página de Pizza.jsx.
-
+# React (G90) | Hito 8 - Pizzería Mamma Mía
+Implementar la autenticación real con el backend utilizando JWT.
 
 (*) Backend en: **http://localhost:5001/**
 
 ###  Instrucciones
-1. Implementar rutas protegidas yvamos a utilizar el hook useParams para obtener el id de la pizza en la página de Pizza.jsx.
-2. Crear un UserContext para almacenar el token (simulado) que estamos utilizando en el Navbar.jsx, El context tiene que tener las siguientes características:
-   - Un estado que almacene el token, por defecto, estará en true.
-   - Un método logout que cambie el estado del token a false.
-4. Utilizar el UserContext en el Navbar.jsx, al hacer click en el botón de logout, se debe ejecutar el método logout.
-5. Utilizar el UserContext en la página de Cart.jsx, deshabilita el botón "pagar" en caso de que el token sea false.
-6. Implementa la ruta protegida para "/profile". Si el token es false, redirige a "/login". Además, si el token es true, los usuarios no deberían poder acceder a la página de login y register (los puedes redirigir al home).
+1. En el UserContext, implementa los métodos para hacer login y register, consumiendo lasrutas /api/auth/login y /api/auth/register respectivamente. Estas rutas te devolverán un token JWT y un email que debes almacenar sus respectivos estados. (2 puntos)
+2. En el UserContext, implementa un método para hacer logout, este método debe eliminar el token y el email del estado. (1 punto)
+3. En el UserContext, implementa un método para obtener el perfil del usuario autenticado, consumiendo la ruta /api/auth/me. (1 punto)
+4. Tanto la página de Login como la de Register, deben implementar los métodos creados en UserContext para acceder al sistema. (2 puntos)
+5. En la página profile, muestra el email del usuario autenticado y un botón para cerrar sesión. (1 punto)
+6. El botón logout del navbar debe cerrar la sesión del usuario. (1 punto)
+7. En la página de Cart.jsx, implementa el método para enviar el carrito de compras al backend, consumiendo la ruta /api/checkouts. (1 punto)
+8. En la página de Cart.jsx, muestra un mensaje de éxito cuando se haya realizado la compra. (1 punto)
