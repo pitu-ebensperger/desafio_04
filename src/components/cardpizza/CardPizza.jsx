@@ -1,17 +1,13 @@
-import React from 'react'
-import { useEffect, useState, useContext } from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import './CardPizza.css'
-import pizzas from './pizzas.js'
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+
 
 import { CartContext } from '../../context/cartContext.jsx';
 import { PizzaContext } from '../../context/pizzaContext.jsx';
-
+import './CardPizza.css'
 
 const CardPizza = () => {
   const { addToCart } = useContext(CartContext);

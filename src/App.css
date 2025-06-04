@@ -14,16 +14,18 @@
   min-height: 100vh;
 }
 
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #f4ece4;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #f4ece4;
+  }
+  
+}
 
-.page a, .navbar a {
-  font-weight: 500;
-  color: #f4ece4;
-  text-decoration: none !important;
-  transition: color 0.5s;
-}
-.page a:hover,.navbar a:hover{
-  color: #d1ab83;
-}
+/* Global styles */
 
 body{
   font-family: var(--font-family-sans);
@@ -42,135 +44,18 @@ body{
   min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #f4ece4;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #f4ece4;
-  }
-  
-}
-
-.page .btn-primary{
-  display: flex;
-  justify-content: center;
-  font-size: 1em;
-  border-radius: 50px;
-  background-color: #d1ab83;
-  border-color: #d1ab83;
-  color: white;
-  justify-items: center;
-  align-items: center;
-  vertical-align: middle;
-  text-align: center;
-  width: fit-content;
+.page a, .navbar a {
   font-weight: 500;
-  margin-top: 0px;
-  transition:  all 0.5s;
-  border-style: none;
-  padding: 7px 20px;
-}
-
-.page .btn-primary:hover{
-  background-color: #191919;
-  border-color: #191919;
-  opacity: 0.9;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 3px;
-  cursor: pointer;
-}
-
-
-.btn-icon{
-  background-color: transparent;
-  color: #d1ab83;
-  margin-top: 0 !important;
-  padding: 0;
-  left: 5px;
-  border: none;
-  max-width: fit-content;
-  max-height: fit-content;
+  color: #f4ece4;
+  text-decoration: none !important;
   transition: color 0.5s;
-  font-size: 1.4em !important;
-  outline: none;
-  width: fit-content;
-  position: relative;
-
 }
+      .page a:hover,.navbar a:hover{
+        color: #d1ab83;
+      }
 
-.btn-icon:hover, .btn-icon:focus, .btn-icon path:focus{
-  color: #2E2D2E;
-  background-color: transparent;
-  cursor: pointer;
-  outline: none;
-}
-
-
-.page .btn-back{
-  display: flex;
-  position: fixed;
-  font-size: 1.8em;
-  top: 100px;
-  left: 30px;
-  color: #d1ab83;
-  background-color: transparent;
-  text-align: left;
-  transition: color 0.5s;
-  z-index: 100;
-}
-  
-.page .btn-back:hover{
-  color: #2E2D2E;
-}
-
-
-.page .btn-home{
-  display: flex;
-  font-size: 1em;
-  color: #d1ab83;
-  justify-items: center;
-  align-items: center;
-  vertical-align: middle;
-  transition:  0.5s;
-  text-align: center;
-  justify-content: center;
-  border: 1px solid transparent;
-  padding: 0.5em 1.5em;
-  border-radius: 50px;
-}
-
-.page .btn-home:hover{
-  color: #191919;
-  border-color: #d1ab83;
-  cursor: pointer;
-}
-
-
-form{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-}
-
-.error {
-  font-size: 1em;
-  color: rgb(193, 83, 83);
-  text-align: center;
-  font-weight: 500;
-  margin: 0;
-  }
-
-.success {
-  font-size: 1em;
-  color: rgb(90, 142, 124);
-  text-align: center;
-  font-weight: 500;
-  margin: 5px 0 0 0;
-  }
-
-  .page{
+/* Page styles */
+ .page{
     background-color: #f4ece4;
     display: flex;
     flex-direction: column;
@@ -192,14 +77,148 @@ form{
     max-width: 100%;
   }
 
-  .page-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
+
+/*Button styles*/
+
+.page .btn-primary{
+  display: flex;
+  justify-content: center;
+  font-size: 1em;
+  border-radius: 50px;
+  background-color: #d1ab83;
+  border-color: #d1ab83;
+  color: white;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  width: fit-content;
+  font-weight: 500;
+  margin-top: 0px;
+  transition:  all 0.5s;
+  border-style: none;
+  padding: 7px 20px;
+}
+        .page .btn-primary:hover{
+          background-color: #191919;
+          border-color: #191919;
+          opacity: 0.9;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 1.5px 3px;
+          cursor: pointer;
+        }
+
+
+.btn-icon{
+  background-color: transparent;
+  color: #d1ab83;
+  margin-top: 0 !important;
+  padding: 0;
+  left: 5px;
+  border: none;
+  max-width: fit-content;
+  max-height: fit-content;
+  transition: color 0.5s;
+  font-size: 1.4em !important;
+  outline: none;
+  width: fit-content;
+  position: relative;
+}
+        .btn-icon:hover, .btn-icon:focus, .btn-icon path:focus{
+          color: #2E2D2E;
+          background-color: transparent;
+          cursor: pointer;
+          outline: none;
+        }
+
+
+.page .btn-back{
+  display: flex;
+  position: fixed;
+  font-size: 1.8em;
+  top: 100px;
+  left: 30px;
+  color: #d1ab83;
+  background-color: transparent;
+  text-align: left;
+  transition: color 0.5s;
+  z-index: 100;
+}
+        .page .btn-back:hover{
+          color: #2E2D2E;
+        }
+
+
+.page .btn-home{
+  font-size: 1em;
+  color: #d1ab83;
+  justify-items: center;
+  align-items: center;
+  vertical-align: middle;
+  transition:  0.5s;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  padding: 0.3em 1em;
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+        .page .btn-home:hover{
+          color: #c8753d;
+          border-color: #d1ab83;
+          font-weight: 600;
+          font-size: 0.975em;
+          cursor: pointer;
+        }
+
+
+
+
+/* Form styles */
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+
+.page-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.error {
+  font-size: 1em;
+  color: rgb(193, 83, 83);
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
   }
+
+.success {
+  font-size: 1em;
+  color: rgb(90, 142, 124);
+  text-align: center;
+  font-weight: 500;
+  margin: 5px 0 0 0;
+  }
+
+  .success-register {
+  font-size: 1em;
+  color: rgb(90, 142, 124);
+  text-align: center;
+  font-weight: 500;
+  margin: 5px 0 0 0;
+  }
+
+
+ /* Card styles */
+
 
   .card{
     display: flex;
@@ -223,7 +242,6 @@ form{
     align-items: center;
     gap: 1em;
     width: 280px;
-
     padding: 0;
     background-color: #f4ece4;
     color: #d1ab83;
@@ -231,35 +249,31 @@ form{
     box-shadow: rgba(0, 0, 0, 0.14) 0px 2px 5px;
     transition: box-shadow 0.5s;
     border: 0px solid transparent;
-    
   }
-  
-  .custom-card:hover{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
-  }
-  .custom-card .card-body{
-    width: 90%;
-    padding: 0;
-  }
-  
-  .custom-card .card-img-top{
-    max-width: 100%;
-    border-radius: 8px 8px 0 0;
-    object-fit: cover;
-    border: 0px solid transparent;
-  }
-  
-  .custom-card .card-title{
-    font-family: var(--font-family-serif);
-    font-size: 1.5em;
-    font-weight: 500;
-    line-height: 1.1;
-    margin: 0;
-    color:#d1ab83;
-    margin-bottom: 15px;
-    transition: color 0.5s;
-    text-transform: capitalize;
-  }
+        .custom-card:hover{
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 4px 8px;
+        }
+        .custom-card .card-body{
+          width: 90%;
+          padding: 0;
+        }
+        .custom-card .card-img-top{
+          max-width: 100%;
+          border-radius: 8px 8px 0 0;
+          object-fit: cover;
+          border: 0px solid transparent;
+        }
+        .custom-card .card-title{
+          font-family: var(--font-family-serif);
+          font-size: 1.5em;
+          font-weight: 500;
+          line-height: 1.1;
+          margin: 0;
+          color:#d1ab83;
+          margin-bottom: 15px;
+          transition: color 0.5s;
+          text-transform: capitalize;
+        }
   
   .card-pizza .ingredients{
     display: flex;
@@ -326,24 +340,23 @@ form{
     padding: 0.5em 0 2em 0;
   }
   .custom-card .card-bottom .card-btn{
-              display: flex;
-              font-size: 1em;
-              border-radius: 50px;
-              background-color: #d1ab83;
-              color: #f4ece4;
-              font-weight: 500;
-              justify-items: center;
-              align-items: center;
-              vertical-align: middle;
-              transition: background-color 0.5s;
-              transition: border-color 0.25s;
-              transition: filter 0.5s;
-              border-color: #d1ab83;
-              text-align: center;
-              justify-content: center;
-              padding: 2px 20px;
-            }
-  
+      display: flex;
+      font-size: 1em;
+      border-radius: 50px;
+      background-color: #d1ab83;
+      color: #f4ece4;
+      font-weight: 500;
+      justify-items: center;
+      align-items: center;
+      vertical-align: middle;
+      transition: background-color 0.5s;
+      transition: border-color 0.25s;
+      transition: filter 0.5s;
+      border-color: #d1ab83;
+      text-align: center;
+      justify-content: center;
+      padding: 2px 20px;
+    }
             .custom-card .card-bottom .card-btn:hover{
               background-color: #2e2d2d;
               border-color: #2e2d2d;

@@ -3,6 +3,7 @@ Implementar la autenticación real con el backend utilizando JWT.
 
 (*) Backend en: **http://localhost:5001/**
 
+
 ###  Instrucciones
 1. En el UserContext, implementa los métodos para hacer login y register, consumiendo lasrutas /api/auth/login y /api/auth/register respectivamente. Estas rutas te devolverán un token JWT y un email que debes almacenar sus respectivos estados. (2 puntos)
 2. En el UserContext, implementa un método para hacer logout, este método debe eliminar el token y el email del estado. (1 punto)

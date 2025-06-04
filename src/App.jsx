@@ -1,32 +1,25 @@
 import { useContext } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
 import Pizza from "./components/pizza/Pizza";
-
-import Cart from "./views/cart/CartPage";
-import Home from "./views/home/HomePage";
-import Login from "./views/login/LoginPage";
-import Register from "./views/register/RegisterPage";
-import Profile from "./components/profile/Profile";
+import Cart from "./pages/cart/Cart";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+import Profile from "./pages/profile/Profile";
 import NotFound from "./components/notfound/NotFound";
-import Administracion from "./views/Administracion";
+import Administracion from "./pages/Administracion";
 
-import CartProvider from "./context/cartContext";
-import PizzaProvider from "./context/pizzaContext";
-import { UserContext } from "./context/userContext";
-
+import { UserContext } from "./context/UserContext";
 import './App.css';
 
 const App = () => {
-  // Tomar token de userContext
+  // Tomar token de UserContext
   const { token } = useContext(UserContext); 
 
   return (
-  <CartProvider>
-      <PizzaProvider>
     <div className="main-container">
     <Navbar />
     <div className="page">
@@ -44,9 +37,6 @@ const App = () => {
     </div>
     <Footer />
   </div>
-  </PizzaProvider>
- </CartProvider>
-
   );
   };
 

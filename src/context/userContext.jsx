@@ -7,11 +7,6 @@ const UserProvider = ({ children }) => {
     const [token, setToken] = useState(null);   
     const [email, setEmail] = useState(null);
     const [profile, setProfile] = useState(null);
-    const [missingFields, setMissingFields] = useState(false);
-    const [errorEmail, setErrorEmail] = useState(false);
-    const [errorPasswordRequirements, setPasswordRequirements] = useState(false);
-    const [successMessage, setSuccessMessage] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(""); 
 
     // Método para login
     const login = async (emailInput, password) => {
@@ -22,9 +17,10 @@ const UserProvider = ({ children }) => {
                 body: JSON.stringify({ email: emailInput, password }),
             });
             const data = await response.json();
-            if (data.token && data.email) {
+            if (data.token && data.email && data.name) {
                 setToken(data.token);
                 setEmail(data.email);
+                setProfile({ name: data.name, email: data.email });
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("email", data.email);
                 return { success: true };
@@ -36,19 +32,21 @@ const UserProvider = ({ children }) => {
         }
     };
        
-    const register = async (emailInput, password) => { // Método para register
+    const register = async (nameInput, emailInput, password) => { // Método para register
         try {
             const response = await fetch("http://localhost:5001/api/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email: emailInput, password }),
+                body: JSON.stringify({ email: emailInput, password, name: nameInput}),
             });
             const data = await response.json();
-            if (data.token && data.email) {
+            if (data.token && data.email && data.name) {
                 setToken(data.token);
                 setEmail(data.email);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("email", data.email);
+                localStorage.setItem("name", data.name);
+                setProfile({ name: data.name, email: data.email });
                 return { success: true };
             } else {
                 return { success: false, error: data.error || "Registro fallido" };
@@ -65,6 +63,7 @@ const UserProvider = ({ children }) => {
         setProfile(null);
         localStorage.removeItem("token");
         localStorage.removeItem("email");
+        localStorage.removeItem("name");
     };
 
 

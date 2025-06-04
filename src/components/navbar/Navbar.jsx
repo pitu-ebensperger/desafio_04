@@ -8,16 +8,17 @@ import { faPizzaSlice,faHouse,faCartShopping,faUser,faLock,faUnlock,faUserLock,f
 import './Navbar.css'
 
 import { CartContext } from "../../context/cartContext";
-import { UserContext } from "../../context/userContext";
+import { UserContext } from "../../context/UserContext";
 
 const NavbarMenu =() => {
     const { cartItems = [] } = useContext(CartContext);
-    const { token, setToken } = useContext(UserContext); 
+    const { token, profile, logout } = useContext(UserContext);
 
-    const logout = () => { // Función logout
-        setToken(null);
-    }
-    
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+      };
+
     const cartTotal = cartItems
       .filter((pizza) => pizza.quantity > 0) 
       .reduce((total, pizza) => {
@@ -53,7 +54,7 @@ const NavbarMenu =() => {
               <>
                 <Link to='/profile' className='nav-btn' onClick={closeMenu}>
                   <FontAwesomeIcon icon={faUser} size='xs' />
-                  <span className="btntitle">&nbsp;&nbsp;{token.displayName}</span>
+                  <span className="btntitle">&nbsp;&nbsp;{profile?.name || "Perfil"}</span>
                 </Link>
                 <button className='nav-btn' onClick={() => { logout(); closeMenu(); }}>
                   <FontAwesomeIcon icon={faRightFromBracket} size='xs' />
@@ -96,7 +97,7 @@ const NavbarMenu =() => {
                 <FontAwesomeIcon icon={faUser} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Profile</span>
             </Link>
-            <button className='nav-btn' onClick={() => { logout(); closeMenu(); }}>
+            <button className='nav-btn' onClick={() => { handleLogout; closeMenu(); }}>
                 <FontAwesomeIcon icon={faRightFromBracket} size='xs'/>
                 <span className="btntitle">&nbsp;&nbsp;Logout</span>
             </button>
