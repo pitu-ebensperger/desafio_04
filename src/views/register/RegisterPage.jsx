@@ -1,5 +1,7 @@
 import { useState } from "react";
 import './Register.css'
+import useInput from "../hooks/useInput";
+import { isValidEmail } from "../utils/validators/email.validate";
 
 import { Link } from 'react-router-dom';
 
@@ -7,50 +9,67 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
+  const email = useInput("");
+  const password = useInput("");
   const [passwordAgain, setPasswordAgain] = useState("");
   const [missingFields, setMissingFields] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
   const [errorPasswordRequirements, setPasswordRequirements] = useState(false);
   const [errorPasswordMatch, setPasswordMatch] = useState(false);
+  const [backendError, setBackendError] = useState("");
   const [successMessage, setSuccessMessage] = useState(false);
 
-  const validateEmailFormat = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
 
-  const validateRegister = (e) => {
+  const validateRegister = async (e) => {
     e.preventDefault();
 
     setMissingFields(false);
     setErrorEmail(false);
     setPasswordRequirements(false);
     setPasswordMatch(false);
+    setBackendError("");
     setSuccessMessage(false);
 
-    if (!email || !password || !passwordAgain) {
+    if (!email.value || !password.value || !passwordAgain) {
         setMissingFields(true);
-        if (!email || !validateEmailFormat(email)) setErrorEmail(true);
-        if (!password || password.length < 6) setPasswordRequirements(true);
-        if (password !== passwordAgain) setPasswordMatch(true);
+        if (!email.value || !isValidEmail(email.value)) setErrorEmail(true);
+        if (!password.value || password.value.length < 6) setPasswordRequirements(true);
+        if (password.value !== passwordAgain) setPasswordMatch(true);
         return;
       }
      
-    if (!email || !validateEmailFormat(email) || password !== passwordAgain || password.length < 6){
-      if (!email || !validateEmailFormat(email)) setErrorEmail(true);
-      if (!password || password.length < 6) setPasswordRequirements(true);
-      if (password !== passwordAgain) setPasswordMatch(true);
+    if (!email.value ||  !isValidEmail(email.value) || password.value !== passwordAgain || password.value.length < 6){
+      if (!email.value ||  !isValidEmail(email.value)) setErrorEmail(true);
+      if (!password.value || password.value.length < 6) setPasswordRequirements(true);
+      if (password.value !== passwordAgain) setPasswordMatch(true);
       return;
     }
 
-  
+     try {
+    const response = await fetch("http://localhost:5001/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.value, password: password.value }),
+    });
+    const data = await response.json();
 
-    setSuccessMessage(true);
-    setEmail('');
-    setPassword('');
-    setPasswordAgain('');
+    if (data?.error) {
+        setErrorEmail(true);
+        setBackendError(data.error); 
+        return;
+      }
+
+     if (data.token) {
+      localStorage.setItem("token", data.token);
+      setSuccessMessage(true);
+      email.setValue('');
+      password.setValue('');
+      setPasswordAgain('');
+    }
+
+    } catch (err) {
+    console.error("Error during registration:", err);}
   };
 
   return (
@@ -67,8 +86,7 @@ const Register = () => {
                         className="form-control"
                         type="text"
                         name="Email"
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
+                         {...email}
                       />
                     </div>
 
@@ -78,8 +96,7 @@ const Register = () => {
                         className="form-control"
                         type="password"
                         name="Password"
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
+                        {...password}
                       />
                     </div>
 
@@ -103,6 +120,7 @@ const Register = () => {
                       {errorEmail ? <p className="error">El email ingresado no es válido</p> : null}
                       {errorPasswordRequirements ? <p className="error">La contraseña debe tener al menos 6 caracteres</p> : null}
                       {errorPasswordMatch ? <p className="error">Las contraseñas no son iguales</p> : null}
+                      {backendError && <p className="error">{backendError}</p>}
                       {successMessage ? <p className="success">Registro exitoso</p> : null}
                     </div>
                   </div>
