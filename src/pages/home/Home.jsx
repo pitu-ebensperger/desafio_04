@@ -1,6 +1,7 @@
 import './home.css'
-import Header from '../../components/header/Header'
-import CardPizza from '../../components/cardpizza/CardPizza'
+
+import Header from '../../components/Header/Header'
+import CardPizza from '../../components/CardPizza/CardPizza'
 
 
 

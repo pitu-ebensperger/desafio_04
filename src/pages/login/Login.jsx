@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from 'react-router-dom'; 
 import { UserContext } from "../../context/UserContext";
 import useInput from "../../hooks/useInput";
@@ -7,9 +7,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import './Login.css'
 
+import Alert from 'react-bootstrap/Alert';
+import Fade from 'react-bootstrap/Fade';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 const Login = () => {
-    const { login } = useContext(UserContext);
+    const { login, } = useContext(UserContext);
     const email = useInput("");
     const password = useInput("");
     const [missingFields, setMissingFields] = useState(false);
@@ -18,6 +23,7 @@ const Login = () => {
     const [successMessage, setSuccessMessage] = useState(false);
     const [errorMessage, setErrorMessage] = useState(""); 
     const navigate = useNavigate();
+    
   
   
     const handleLogin = async (e) => {
@@ -29,16 +35,15 @@ const Login = () => {
       setSuccessMessage(false);
       setErrorMessage("");
   
-      if (!email.value || !password.value) {
-        setMissingFields(true);
-        if (!email.value || !isValidEmail(email.value)) setErrorEmail(true);
-        if (!password.value || password.value.length < 6) setPasswordRequirements(true);
-        return;
+      
+      if (!email.value || !isValidEmail(email.value)) {
+      setErrorEmail(true);
       }
-     
-      if (!email.value || !isValidEmail(email.value) || password.value.length < 6){
-        if (!email.value || !isValidEmail(email.value)) setErrorEmail(true);
-        if (!password.value || password.value.length < 6) setPasswordRequirements(true);
+      if (!password.value || password.value.length < 6) {
+        setPasswordRequirements(true);
+      }
+      if (!email.value || !password.value || !isValidEmail(email.value) || password.value.length < 6) {
+        setMissingFields(true);
         return;
       }
 
@@ -51,13 +56,21 @@ const Login = () => {
 
         setSuccessMessage(true);
         email.setValue('');
-        password.setValue('');
-        window.alert("¡Login exitoso!");
-          setTimeout(() => {// Delay para ver mensaje antes de redirigir al home 
-          navigate('/home');
-        }, 100); 
+        password.setValue('');s
+        };
 
-    };
+    
+        useEffect(() => {
+            if (successMessage) {
+              const timer = setTimeout(() => {
+                navigate('/home');
+              }, 2000);
+              return () => clearTimeout(timer);
+            }
+          }, [successMessage, navigate]);
+
+
+
   
     return (
       <>
@@ -94,12 +107,31 @@ const Login = () => {
                         </button>
               
                         <div className="message">
-                          {missingFields ? <p className="error">Todos los campos son obligatorios</p> : null}
-                          {errorEmail ? <p className="error">El email ingresado no es válido</p> : null}
-                          {errorPasswordRequirements ? <p className="error">La contraseña debe tener al menos 6 caracteres</p> : null}
-                          {errorMessage && <p className="error">{errorMessage}</p>}
-                          {successMessage ? <p className="success">Login exitoso</p> : null}
+                          {missingFields && <p className="error">Todos los campos son obligatorios</p>}
+                          {errorEmail && <p className="error">El email ingresado no es válido</p>}
+                          {errorPasswordRequirements && <p className="error">La contraseña debe tener al menos 6 caracteres</p>}
+                          {errorMessage && (
+                                 
+                            <Alert variant="danger" onClose={() => setErrorMessage("")} dismissible>
+                              {errorMessage}
+                            </Alert>
+                          )}
+                          {successMessage && (
+                                  <div className="centered-alert">
+                                      <Fade in={successMessage}>
+                                        <Alert
+                                          variant="success"
+                                          
+                                          className="shadow-lg alertsuccess"
+                                          transition={false}
+                                        >
+                                          ¡Login exitoso! Redirigiendo...
+                                        </Alert>
+                                      </Fade>
+                                    </div>
+                              )}
                         </div>
+                        
                       </div>
                 </form>
             </div>

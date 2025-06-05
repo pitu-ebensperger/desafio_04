@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 import { CartContext } from '../../context/cartContext.jsx';
 import { PizzaContext } from '../../context/pizzaContext.jsx';

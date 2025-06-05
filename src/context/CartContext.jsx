@@ -43,8 +43,13 @@ const CartProvider = ({ children }) => {
       .filter((item) => item.quantity > 0)  
   );
 };
+
+ const clearCartItems = () => {
+      setCartItems([]); // Vacía el carrito en React
+      localStorage.setItem("cartItems", JSON.stringify([])); // Opcional: limpia el localStorage también
+    };
         return (
-        <CartContext.Provider value={{ cartItems, incrementCount, decrementCount, addToCart }}>
+        <CartContext.Provider value={{ cartItems, incrementCount, decrementCount, addToCart, clearCartItems }}>
         {children}
         </CartContext.Provider>
         );

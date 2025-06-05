@@ -112,6 +112,7 @@
 
 .menu-toggle:hover svg{
     color: #f4ece4;
+    cursor: pointer;
 }
 
 .navbar-right{
@@ -140,7 +141,7 @@
   align-items: center;
 }
 
-.menuMobile a{
+.menuMobile a, .menuMobile button{
   color: #f4ece4;
   text-decoration: none;
   font-size: 1.2em;
@@ -149,9 +150,10 @@
   background-color: transparent;
   cursor: pointer;
   transition: all 0.5s;
+  border: none;
 }
 
-.menuMobile a:hover{
+.menuMobile a:hover, .menuMobile button:hover {
   color: #d1ab83;
 }
 
@@ -175,6 +177,8 @@
 .menuMobile .total:hover {
   border-color: #d1ab83;
 }
+
+
 
 
 @media only screen and (max-width: 767px) {
@@ -221,7 +225,7 @@
       
     }
     
-    .nav-btn:hover .tooltiptext {
+    .navbar-menu .nav-btn:hover .tooltiptext {
       display: inline-block;
       visibility: visible;
     }
@@ -246,6 +250,7 @@
     gap: 2em;
     justify-content: center;
     align-items: center;
+    position: fixed;
 }
 .menuMobile .menu{
   display: flex;
@@ -274,6 +279,7 @@
   }
 
 }
+
 
 
 

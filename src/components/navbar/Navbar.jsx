@@ -1,14 +1,14 @@
-
+import './Navbar.css'
 import { useState, useContext } from 'react';
 import { useNavigate, Link } from "react-router-dom";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPizzaSlice,faHouse,faCartShopping,faUser,faLock,faUnlock,faUserLock,faUserPlus,faRightFromBracket,faRightToBracket,faBars,} from '@fortawesome/free-solid-svg-icons';
-
-import './Navbar.css'
-
+import { faPizzaSlice,faHouse,faCartShopping,faUser,faLock,faUnlock,faUserLock,faUserPlus,faRightFromBracket,faRightToBracket,faBars, faTimes} from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from "../../context/cartContext";
 import { UserContext } from "../../context/UserContext";
+
+
+
+
 
 const NavbarMenu =() => {
     const { cartItems = [] } = useContext(CartContext);
@@ -17,6 +17,7 @@ const NavbarMenu =() => {
     const handleLogout = () => {
         logout();
         navigate('/login');
+        
       };
 
     const cartTotal = cartItems
@@ -62,7 +63,7 @@ const NavbarMenu =() => {
                 </button>
               </>
              :
-             <div class="navbar-menu">
+             <div className="navbar-menu">
                 <Link to='/login' className='nav-btn' onClick={closeMenu}>
                     <FontAwesomeIcon icon={faRightToBracket} size='xs'/>
                     <span className="btntitle">&nbsp;Login</span>
@@ -82,7 +83,7 @@ const NavbarMenu =() => {
             <span className="totaltitle">Total&nbsp;</span>${cartTotal.toLocaleString()}
         </Link>
          <div className="menu-toggle" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} size='xl' />
+            <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} size='xl' />
           </div>
         </div>
       </div>

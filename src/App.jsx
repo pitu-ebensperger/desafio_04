@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Footer from "./components/footer/Footer";
-import Navbar from "./components/navbar/Navbar";
-import Pizza from "./components/pizza/Pizza";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
+import Pizza from "./components/Pizza/Pizza";
 import Cart from "./pages/cart/Cart";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
@@ -28,7 +28,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={token ? <Administracion /> : <Navigate to="/login" />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={token ? <Navigate to="/home" /> : <Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/pizza/:id" element={<Pizza />} />
           <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
